@@ -1,0 +1,1 @@
+Odin project, creating a rock paper scissors in command line
