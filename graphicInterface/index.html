@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<HEAD>
+    <title>Rock Paper Scissors</title>
+    <meta charset="utf-8"/>
+</HEAD>
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+<div id="roundResult"></div>
+<div id="score"></div>
+<div id="endResult"></div>
+<script>
+  function computerPlay() {
+    let num = parseInt(3*Math.random());
+    if (num === 0) {
+        return 'rock';
+    }
+    if (num === 1) {
+        return 'paper';
+    }
+    if (num === 2) {
+        return 'scissors';
+    }
+  }
+  
+  function singleRound(playerSelection, computerSelection) {
+    let player = playerSelection.toLowerCase();
+    let computer = computerSelection.toLowerCase();
+    if (player == 'rock') {
+        if (computer == 'paper') { 
+            return 'You lose, paper beats rock';
+
+        } else if (computer == 'scissors') {
+            return 'You win, rock beats scissors';
+        } else {
+            return 'Tie';
+          }    
+    }
+    
+    if (player == 'paper') {
+        if (computer === 'rock') {
+            return 'You win, paper beats rock';
+        } else if (computer === 'scissors') {
+            return 'You lose, scissors beats paper';
+        } else {
+            return 'Tie'
+          }
+        }
+    if (player == 'scissors') {
+        if (computer === 'paper') {
+            return 'You win, scissors beats paper';
+        } else if (computer === 'rock') {
+            return 'You lose, rock beats scissors';
+        } else {
+            return 'Tie'
+        }
+    }
+  }
+  function game(playerChoice) {
+   let result = singleRound(playerChoice, computerPlay());
+   roundResult.textContent = "round nr"+(numberOfRound)+" : "+result;
+   if (result[4] == 'w') {
+          playerScore += 1;
+          score.textContent = "your score is "+playerScore+" and computer score is "+computerScore;
+      }
+      else if (result[4] == 'l') {
+          computerScore += 1;
+          score.textContent = "your score is "+playerScore+" and computer score is "+computerScore;
+      }
+      else {
+           score.textContent = "your score is "+playerScore+" and computer score is "+computerScore;
+      }
+    if (numberOfRound == 5) {
+      if (computerScore === playerScore) {
+        if(!alert("It's a tie!")){window.location.reload();}
+      }
+      else if (playerScore > computerScore) {
+        if(!alert("Wonderful, you won!")){window.location.reload();}
+      }
+      else {
+        if(!alert("Ehhr I think you lost, try again!")){window.location.reload();}
+      }
+    }
+    numberOfRound += 1;
+  }
+
+
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+const roundResult = document.querySelector('#roundResult');
+const score = document.querySelector('#score');
+const endResult = document.querySelector('#endResult');
+
+let computerScore = 0;
+let playerScore = 0;
+let numberOfRound = 1;
+rock.addEventListener('click', () => { game('rock');});
+paper.addEventListener('click', () => { game('paper');});
+scissors.addEventListener('click', () => { game('scissors');});
+
+</script>
+
+</html>
+
+
+
+
+
