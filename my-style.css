@@ -1,0 +1,46 @@
+body, html {
+    height: 100%;
+}
+body {
+    background: url("images/background.png") no-repeat;
+    background-color: lightgray;
+    background-position: center center;
+    height: 100%;
+    background-size: cover;
+}
+.button {
+    padding: 50px;
+    display: inline-block;
+    font-size: 20px;
+    margin: 20px 30px ;
+    text-align: center;
+}
+.button:hover {
+  border-style: solid;
+  transform: scale(1.5);
+  border-color:goldenrod;
+  box-shadow: 10px 10px 8px goldenrod;
+}
+#buttons {
+    margin-top: 5%;
+    text-align: center;
+}
+#rock {
+    text-align: center;
+    
+}
+#paper {
+    
+    
+}
+#scissors {
+  
+}
+.bottom {
+    text-align:center;
+    position: relative;
+    top: 40%;
+    font-size: 30px;
+    padding: 20px;
+}
+
